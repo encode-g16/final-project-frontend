@@ -1,0 +1,7 @@
+@import './CreateEvent.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
