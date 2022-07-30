@@ -7,7 +7,7 @@ type FormData = {
     time: string;
     location: string;
     description: string;
-    price:string;
+    price:number;
     organiser:string;
     file: File;
     checkbox: boolean;
@@ -57,7 +57,7 @@ export default function CreateEvent() {
                     {errors.description?.type === 'required' && <p className="error">Description is required</p>}
                     <div className="item-full-width">
                         <label>Ticket Price (Eth):</label>
-                        <input type="number" {...register("price",{ required: true })} placeholder="0.02 ETH"/>   
+                        <input type="number" {...register("price",{ required: true })} placeholder="0.02" min="0" step=".01"/>   
                     </div>
                     {errors.price?.type === 'required' && <p className="error">Price is required</p>}
                     <div className="item-full-width">
