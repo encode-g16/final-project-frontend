@@ -5,7 +5,14 @@ import Hero from '../components/Hero';
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div>
+      <header>
+        <Header />
+      </header>
+
+
+
+    </div>
   )
 }
 
