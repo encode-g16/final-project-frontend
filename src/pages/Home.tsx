@@ -17,10 +17,11 @@ const Home = () => {
           <div>
             <h2 className="upcoming-text">Check Out Popular Events</h2>
           </div>
+          <div>
             <EventBox />
           </div>
       </div>
-      
+    </div>  
   )
 }
 
