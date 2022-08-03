@@ -1,25 +1,47 @@
 import React from 'react';
 import Header from '../components/Header';
+import { useParams } from "react-router-dom";
+
+  //temporary data until we have the API to call
+const event = {
+    title: "Eth Hackathon",
+    description: "Come and build the future of DeFi on Ethereum. Prize money of £20,000!",
+    organiser: "Eth Global",
+    location: "212 Hackney Road, London, E1 2AP, UK",
+    date: "01/01/20",
+    time: "19:00",
+    imageUrl: "/hackathon.jpg",
+    price: 0.05
+}
+
+async function fetchEvent(eventId: string) {
+    const ApiUrl = "www.api.com/events/" + eventId;
+    const response = await fetch(ApiUrl);
+    return response;
+}
 
 export default function Event() {
+
+    //uncomment this line to use the API
+    //const event = fetchEvent(useParams().id);
 
   return (
     <div className="event-details-container">
         <div className='event-picture-container'>
-            <img className="event-picture" src="/hackathon.jpg" alt="hackathon"/>
+            <img className="event-picture" src={event.imageUrl} alt="{event.title}"/>
         </div>
         <div className='event-details-container-child1'>
             <div className='event-card'>
                 <div className="event-card-title">
-                    <h1 className='event-details-title'>Eth Hackathon 2022</h1>
+                    <h1 className='event-details-title'>{event.title}</h1>
                 </div>
                 <hr className='event-card-hr'/>
-                <p>Event Name: Hackathon 2022</p>
-                <p>Description: Come and build the future of DeFi on Ethereum. Prize money of £20,000!</p>
-                <p>Organiser: Eth Global</p>
-                <p>Location: 212 Hackney Road, London, E1 2AP, UK</p>
-                <p>Date: 01/01/20</p>
-                <p>Time: 19:00</p>
+                <p>Event Name: {event.title}</p>
+                <p>Description: {event.description}</p>
+                <p>Organiser: {event.organiser}</p>
+                <p>Location: {event.location}</p>
+                <p>Date: {event.date}</p>
+                <p>Time: {event.time}</p>
             </div>
             <div className='event-buttons-container'>
                 <div className='event-buttons-buy-container'>
@@ -36,7 +58,7 @@ export default function Event() {
                         <option value="9">9</option>
                         <option value="10">10</option>
                     </select>
-                    <span className='ticket-price-label'>Price: 0.05 ETH each</span>
+                    <span className='ticket-price-label'>Price: {event.price} ETH each</span>
                 </div>
                 <div className='event-buttons-button-container'>
                     <button className='buy-button' type='submit' name="buy-button">Buy</button>
