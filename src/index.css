@@ -112,13 +112,16 @@ body {
   border-solid
   border-gray-300
   border-2
+  cursor-pointer
+  shadow-gray-800
 }
 
+.event-container-outer {
+  transition: box-shadow .3s;
+}
 
 .event-container-outer:hover {
-  @apply
-  drop-shadow-xl
-  
+  box-shadow: 0 0 40px rgba(33,33,33,.2); 
 }
 
 .event-container-img {
