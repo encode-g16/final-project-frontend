@@ -8,9 +8,9 @@ const Header = () => {
       </div>
       <div className="menu-container">
         <ul className="menu-list">
-          <li>Create Event</li>
-          <li>My Created Events</li>
-          <li>All Events</li>
+          <li className="menu-items">Create Event</li>
+          <li className="menu-items">My Created Events</li>
+          <li className="menu-items">All Events</li>
         </ul>
       </div>
     </div>

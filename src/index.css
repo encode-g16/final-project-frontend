@@ -45,6 +45,19 @@ body {
   font-bold
 }
 
+.menu-items {
+  @apply
+  cursor-pointer
+}
+
+.menu-items {
+  transition: filter .3s;
+}
+
+.menu-items:hover {
+  filter: drop-shadow(0 0 0.75rem green);
+}
+
 .hero-container {
   @apply
   h-[700px]
