@@ -2,16 +2,174 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Montserrat', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.header-outer-container {
+  @apply
+  flex 
+  justify-between 
+  mx-auto 
+  h-[200px]
+}
+
+.logo-container {
+  @apply
+  w-[20rem]
+  h-[6rem]
+  my-10
+  ml-12
+}
+
+.logo-img {
+ @apply
+ h-full 
+ w-full 
+}
+
+.menu-container {
+  @apply
+  mr-[10%]
+  my-auto
+}
+
+
+.menu-list {
+  @apply
+  flex
+  gap-14
+  text-2xl
+  font-bold
+}
+
+.hero-container {
+  @apply
+  h-[700px]
+  w-full
+  overflow-auto
+  flex
+}
+
+.hero-container {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/public/event-hero.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.upcoming-text {
+  @apply
+  my-8
+  text-2xl
+  ml-8
+  font-bold
+}
+
+.find-btn {
+  @apply
+  bg-black
+  text-white
+  rounded-lg
+  w-72
+  h-16
+  mx-auto
+  self-center
+  text-center
+  box-border
+  p-5
+  text-[1.5rem]
+  leading-7
+  tracking-wider
+  cursor-pointer
+}
+
+.find-btn {
+  font-family:'Roboto',sans-serif;
+}
+
+.find-btn:hover {
+  color:#000000;
+  background-color:#FFFFFF;
+}
+
+.events-container {
+  @apply
+  mx-auto
+  px-[5%]
+  pt-8
+}
+
+.event-container-outer {
+  @apply
+  w-[15%]
+  flex
+  flex-col
+  rounded-xl
+  overflow-hidden
+  border-solid
+  border-gray-300
+  border-2
+}
+
+
+.event-container-outer:hover {
+  @apply
+  drop-shadow-xl
+  
+}
+
+.event-container-img {
+  @apply
+  w-full
+}
+
+.event-img {
+  @apply
+  w-full
+  object-cover;
+}
+
+.event-datetime {
+  @apply
+  px-6
+  text-xl
+  font-semibold
+  pb-3
+  text-indigo-600
+}
+
+.event-name {
+  @apply
+  text-2xl
+  font-medium
+  leading-8
+  py-4
+  px-6
+}
+
+.event-location {
+  @apply
+  px-6
+  text-xl
+  pb-3
+  text-slate-500
+}
+
+.event-tickets {
+  @apply
+  px-6
+  text-xl
+  pb-3
+  text-red-600
+}
+
+.event-organiser {
+  @apply
+  px-6
+  text-xl
+  pb-5
+  text-slate-500
 }

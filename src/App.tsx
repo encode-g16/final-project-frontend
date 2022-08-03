@@ -1,8 +1,6 @@
-import React from "react";
 import CreateEvent from './pages/CreateEvent';
 import Event from './pages/Event';
 import Home from './pages/Home'
-import './css/App.css';
 
 import {
   BrowserRouter as Router,
