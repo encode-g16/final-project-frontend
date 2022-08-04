@@ -13,9 +13,9 @@ const Home = () => {
       <div>
         <Hero />
       </div>
-      <div className="events-container">
+      <div className="mx-auto px-[5%] pt-8">
           <div>
-            <h2 className="upcoming-text">Check Out Popular Events</h2>
+            <h2 className="my-8 text-2xl ml-8 font-bold">Check Out Popular Events</h2>
           </div>
           <div>
             <EventBox />
