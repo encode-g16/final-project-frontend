@@ -17,6 +17,32 @@ export default function CreateEventForm() {
         
                 <label htmlFor="event-location" className="p-2 pt-3 pb-0 block md:col-span-1">Event Location</label>
                 <input type="text" id="event-location" name="event-location" placeholder="London" className="block mx-2 md:col-span-3 rounded border border-gray-300"/>     
+                
+                <label htmlFor="event-description" className="p-2 pt-3 pb-0 block md:col-span-1">Description</label>
+                <textarea id="event-description" name="event-description" placeholder="Ethereum Hackathon with up to £20,000 in prizes!" className="block mx-2 md:col-span-3 rounded border border-gray-300"/>     
+            
+                <label htmlFor="event-price" className="p-2 pt-3 pb-0 block md:col-span-1">Event Price (ETH)</label>
+                <input type="text" id="event-price" name="event-price" placeholder="0.02" min="0" step=".01" className="block mx-2 md:col-span-1 rounded border border-gray-300"/>
+                
+                <label htmlFor="event-organiser" className="p-2 pt-3 pb-0 block md:col-span-1">Organiser</label>
+                <input type="text" id="event-organiser" name="event-organiser" placeholder="Vitalik Buterin" className="block mx-2 md:col-span-1 rounded border border-gray-300"/>
+
+                <label htmlFor="event-image" className="p-2 pt-3 pb-0 block md:col-span-1">Event Image</label> 
+                <input type="file" className="block text-sm text-slate-500
+                    file:mr-4 file:py-2 file:px-4 file:my-2
+                    file:rounded-full file:border-0
+                    file:text-sm file:font-semibold
+                    file:bg-violet-50 file:text-violet-700
+                    hover:file:bg-violet-100
+                    md:col-span-3
+                "/>
+   
+                <input type="checkbox" id="event-checkbox" name="event-checkbox" value="1" className="block mx-auto mt-4 md:col-span-1 rounded border border-gray-500"/>
+                <label htmlFor="checkbox" className="mx-2 mt-2 md:col-span-3">I agree to pay gas fees in Eth for the creation of the event and that it is non-refundable</label>
+
+                <button type="submit" className="block col-span-4 p-2 m-2 bg-blue-600 text-center text-lg rounded-md text-white font-semibold hover:bg-blue-700">Create Event</button>
+            
+            
             </div>
         </div>
 
