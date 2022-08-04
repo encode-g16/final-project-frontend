@@ -1,5 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
+import Header from '../components/Header';
 
 type FormData = {
     eventName: string;
@@ -20,6 +21,10 @@ export default function CreateEvent() {
     })
 
     return (
+        <div>
+        <header>
+                <Header />
+            </header>
         <div className="create-event-form">
             <form onSubmit={onSubmit}>
                 <h1>Create Your Event</h1>
@@ -82,6 +87,7 @@ export default function CreateEvent() {
                   
            </form> 
         </div>  
+        </div>
       )
 /*
   return (

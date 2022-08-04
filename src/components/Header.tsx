@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div className="flex justify-between mx-auto h-[200px]">
       <div className="w-[20rem] h-[6rem] my-10 ml-12">
-          <img src="blocktic_logo.png" alt="logo" className="h-full w-full " />
+          <Link to={"/"}><img src="blocktic_logo.png" alt="logo" className="h-full w-full" /></Link>
       </div>
       <div className="mr-[10%] my-auto">
         <ul className="flex gap-14 text-2xl font-bold">

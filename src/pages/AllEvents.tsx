@@ -7,8 +7,8 @@ const AllEvents = () => {
         <header>
             <Header />
       </header>
-        {/* Search bar */}
-        
+        {/* Search Bar */}
+
         {/* To create a JSON file containing mock events. Display eventboxes */}
 
     </div>
