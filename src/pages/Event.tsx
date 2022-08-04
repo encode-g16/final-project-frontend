@@ -1,6 +1,6 @@
-import React from 'react';
-import Header from '../components/Header';
+import React from 'react';  
 import { useParams } from "react-router-dom";
+import Header from '../components/Header';
 
   //temporary data until we have the API to call
 const event = {
@@ -26,6 +26,32 @@ export default function Event() {
     //const event = fetchEvent(useParams().id);
 
   return (
+    <div>
+        <header>
+            <Header/>
+        </header>
+        <div className="block mx-auto md:grid md:grid-cols-4 md:gap-10 md:max-w-screen-lg">
+            <img src={event.imageUrl} alt="event banner" 
+            className="block w-full mx-2 md:col-span-2 rounded-md border border-gray-300 shadow"/>
+
+            <div className='mx-2 border border-gray-300 rounded-md shadow-lg block md:col-span-2'>
+                <h1 className='w-full p-2 text-center text-lg font-semibold'>{event.title}</h1>
+                <hr/>
+                <p className="p-2">Event Name: {event.title}</p>
+                <p className="p-2">Description: {event.description}</p>
+                <p className="p-2">Organiser: {event.organiser}</p>
+                <p className="p-2">Location: {event.location}</p>
+                <p className="p-2">Date: {event.date}</p>
+                <p className="p-2">Time: {event.time}</p>
+            </div>
+
+        </div> 
+    </div>
+  )
+}
+
+
+  /*
     <div className="event-details-container">
         <div className='event-picture-container'>
             <img className="event-picture" src={event.imageUrl} alt="{event.title}"/>
@@ -69,3 +95,5 @@ export default function Event() {
     </div>
   )
 }
+
+*/
