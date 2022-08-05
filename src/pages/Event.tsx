@@ -1,4 +1,4 @@
-import React from 'react';  
+import React, { useState, useEffect } from 'react';  
 import { useParams } from "react-router-dom";
 import Header from '../components/Header';
 
@@ -21,9 +21,25 @@ async function fetchEvent(eventId: string) {
 }
 
 export default function Event() {
+    const price = event.price;
 
     //uncomment this line to use the API
     //const event = fetchEvent(useParams().id);
+    const [selectedValue, setSelectedValue] = useState<string>("1");
+    const [totalPrice, setTotalPrice] = useState<number>(price);
+    
+    function handleChange(event: React.ChangeEvent<HTMLSelectElement>) {
+        setSelectedValue(event.target.value);
+    }
+
+    const calcTotalPrice = (pricePerTicket: number) => {
+        const total = pricePerTicket * Number(selectedValue);
+        setTotalPrice(Number(total.toFixed(2)));
+    }
+
+    useEffect(() => {
+        calcTotalPrice(event.price);
+    });
 
   return (
     <div>
@@ -44,12 +60,14 @@ export default function Event() {
                     <p className="p-2 font-semibold col-span-1">Location:</p><p className="p-2 col-span-2">{event.location}</p>
                     <p className="p-2 font-semibold col-span-1">Date (mm/dd/yy):</p><p className="p-2 col-span-2">{event.date}</p>
                     <p className="p-2 font-semibold col-span-1">Time:</p><p className="p-2 col-span-2">{event.time}</p>
+                    <p className="p-2 font-semibold col-span-1">Price per Ticket (ETH):</p><p className="p-2 col-span-2">{event.price}</p>
                 </div>
             </div>
             <div className='mx-2 block md:col-start-3 md:col-span-2 border border-gray-400 rounded-md shadow-lg'>
                 <div className='block md:grid md:grid-cols-4 md:gap-2'>
                     <label className='p-2 font-semibold col-span-1' htmlFor="number-of-tickets">Number of Tickets:</label>
-                    <select className="w-[50px] p-2 m-2 rounded-lg col-span-1" name="number-of-tickets" id="number-of-tickets">
+                    <select value={selectedValue} onChange={handleChange}
+                    className="w-[50px] p-2 m-2 rounded-lg col-span-1" name="number-of-tickets" id="number-of-tickets">
                         <option value="1" className="">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -61,10 +79,11 @@ export default function Event() {
                         <option value="9">9</option>
                         <option value="10">10</option>
                     </select>
+                    <label className='p-2'>Total: {totalPrice.toFixed(2)} ETH</label>
                     <button type="submit" 
                         className="p-2 m-2 rounded-lg bg-blue-600 text-white 
-                        col-span-2 font-semibold hover:bg-blue-700 shadow-md"
-                        >Buy Tickets
+                        col-span-1 font-semibold hover:bg-blue-700 shadow-md"
+                        >Buy
                     </button>  
                 </div>
             </div>
