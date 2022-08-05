@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';  
 import { useParams } from "react-router-dom";
 import Header from '../components/Header';
+import { ethers } from 'ethers';
 
   //temporary data until we have the API to call
 const event = {
@@ -20,13 +21,20 @@ async function fetchEvent(eventId: string) {
     return response;
 }
 
+//const ContractAddress = '0x1240c9...'; 
+
 export default function Event() {
     const price = event.price;
 
     //uncomment this line to use the API
     //const event = fetchEvent(useParams().id);
+
     const [selectedValue, setSelectedValue] = useState<string>("1");
     const [totalPrice, setTotalPrice] = useState<number>(price);
+    //const [IsLoading, setIsLoading] = useState<boolean>(false);
+    //const [success, setSuccess] = useState<boolean>(false);
+    //const [errorStatus, setErrorStatus] = useState<boolean>(false);
+    //const [txError, setTxError] = useState<string>('');
     
     function handleChange(event: React.ChangeEvent<HTMLSelectElement>) {
         setSelectedValue(event.target.value);
@@ -40,6 +48,33 @@ export default function Event() {
     useEffect(() => {
         calcTotalPrice(event.price);
     });
+
+    /*
+    async function buyTicket() {
+        try {
+            setIsLoading(true);
+
+            //register transfer event from smart contract
+            mintContract.removeAllListeners();
+            mintContract.on("Transfer", () => {
+                setSuccess(true);
+                setIsLoading(false);
+            })
+
+            //get the ticket price
+            const ticketContractPrice = await mintContract.price();
+
+            //mint the NFT
+            const tx = await mintContract.mint(account, 1, apiMessage, signature, { value: ethers.utils.parseEther(ticketContractPrice) });
+            setTxHash(tx.hash);
+        }
+        catch (error) {
+            console.log(error);
+            setErrorStatus(true);
+            setTxError("failed to mint");
+        }
+    }
+    */
 
   return (
     <div>
@@ -94,51 +129,3 @@ export default function Event() {
     </div>
   )
 }
-
-
-  /*
-    <div className="event-details-container">
-        <div className='event-picture-container'>
-            <img className="event-picture" src={event.imageUrl} alt="{event.title}"/>
-        </div>
-        <div className='event-details-container-child1'>
-            <div className='event-card'>
-                <div className="event-card-title">
-                    <h1 className='event-details-title'>{event.title}</h1>
-                </div>
-                <hr className='event-card-hr'/>
-                <p>Event Name: {event.title}</p>
-                <p>Description: {event.description}</p>
-                <p>Organiser: {event.organiser}</p>
-                <p>Location: {event.location}</p>
-                <p>Date: {event.date}</p>
-                <p>Time: {event.time}</p>
-            </div>
-            <div className='event-buttons-container'>
-                <div className='event-buttons-buy-container'>
-                    <label className='buy-tickets-label' htmlFor="number-of-tickets">Buy Ticket</label>
-                    <select className="ticket-select" name="number-of-tickets" id="number-of-tickets">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
-                    <span className='ticket-price-label'>Price: {event.price} ETH each</span>
-                </div>
-                <div className='event-buttons-button-container'>
-                    <button className='buy-button' type='submit' name="buy-button">Buy</button>
-                </div>
-            </div>
-        </div>
-
-    </div>
-  )
-}
-
-*/
