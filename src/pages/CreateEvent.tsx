@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import CreateEventForm from '../components/CreateEventForm';
 
 
-export default function CreateEventNew() {
+export default function CreateEvent() {
   return (
     <div>
         <header>

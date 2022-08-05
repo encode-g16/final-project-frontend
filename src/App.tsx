@@ -1,12 +1,15 @@
+import CreateEvent from './pages/CreateEvent';
 import Event from './pages/Event';
 import Home from './pages/Home'
-import CreateEvent from './pages/CreateEvent'
+import AllEvents from './pages/AllEvents';
+import MyCreatedEvents from './pages/MyCreatedEvents';
 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
+
 
 export default function App() {
   return (
@@ -18,6 +21,12 @@ export default function App() {
           </Route>
           <Route path="/events/:id">
             <Event />
+          </Route>
+          <Route path="/my-created-events">
+            <MyCreatedEvents />
+          </Route>
+          <Route path="/all-events">
+            <AllEvents />
           </Route>
           <Route path="/">
             <Home />
