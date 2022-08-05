@@ -46,10 +46,11 @@ export default function Event() {
         <header>
             <Header/>
         </header>
-        <div className="block mx-auto md:grid md:grid-cols-4 md:gap-10 md:max-w-screen-lg">
+        <div className="block md:w-full md:mx-auto md:grid md:grid-cols-4 md:gap-10 md:max-w-screen-lg">
+      
             <img src={event.imageUrl} alt="event banner" 
-            className="block mx-2 overflow-hidden md:col-span-2 rounded-md border border-gray-400 shadow-lg"/>
-
+            className=" md:col-span-2 md:rounded-md md:border md:border-gray-400 md:shadow-lg"/>
+          
             <div className='mx-2 mt-5 border border-gray-400 rounded-md shadow-lg block md:col-span-2 md:mt-0'>
                 <h1 className='p-2 m-0 text-center text-lg  text-white font-semibold rounded-t-md bg-green-400'>{event.title}</h1>
                 <hr/>
@@ -63,7 +64,7 @@ export default function Event() {
                     <p className="p-2 font-semibold col-span-1">Price per Ticket (ETH):</p><p className="p-2 col-span-2">{event.price}</p>
                 </div>
             </div>
-            <div className='mx-2 block md:col-start-3 md:col-span-2 border border-gray-400 rounded-md shadow-lg'>
+            <div className='mx-2 mt-5 block md:mt-0 md:col-start-3 md:col-span-2 border border-gray-400 rounded-md shadow-lg'>
                 <div className='block md:grid md:grid-cols-4 md:gap-2'>
                     <label className='p-2 font-semibold col-span-1' htmlFor="number-of-tickets">Number of Tickets:</label>
                     <select value={selectedValue} onChange={handleChange}
