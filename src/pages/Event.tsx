@@ -32,18 +32,43 @@ export default function Event() {
         </header>
         <div className="block mx-auto md:grid md:grid-cols-4 md:gap-10 md:max-w-screen-lg">
             <img src={event.imageUrl} alt="event banner" 
-            className="block w-full mx-2 md:col-span-2 rounded-md border border-gray-300 shadow"/>
+            className="block mx-2 overflow-hidden md:col-span-2 rounded-md border border-gray-400 shadow-lg"/>
 
-            <div className='mx-2 border border-gray-300 rounded-md shadow-lg block md:col-span-2'>
-                <h1 className='w-full p-2 text-center text-lg font-semibold'>{event.title}</h1>
+            <div className='mx-2 mt-5 border border-gray-400 rounded-md shadow-lg block md:col-span-2 md:mt-0'>
+                <h1 className='p-2 m-0 text-center text-lg  text-white font-semibold rounded-t-md bg-green-400'>{event.title}</h1>
                 <hr/>
-                <p className="p-2">Event Name: {event.title}</p>
-                <p className="p-2">Description: {event.description}</p>
-                <p className="p-2">Organiser: {event.organiser}</p>
-                <p className="p-2">Location: {event.location}</p>
-                <p className="p-2">Date: {event.date}</p>
-                <p className="p-2">Time: {event.time}</p>
+                <div className="grid grid-cols-3 gap-0">
+                    <p className="p-2 font-semibold col-span-1">Event Name:</p><p className="p-2 col-span-2">{event.title}</p>
+                    <p className="p-2 font-semibold col-span-1">Description:</p><p className="p-2 col-span-2">{event.description}</p>
+                    <p className="p-2 font-semibold col-span-1">Organiser:</p><p className="p-2 col-span-2">{event.organiser}</p>
+                    <p className="p-2 font-semibold col-span-1">Location:</p><p className="p-2 col-span-2">{event.location}</p>
+                    <p className="p-2 font-semibold col-span-1">Date (mm/dd/yy):</p><p className="p-2 col-span-2">{event.date}</p>
+                    <p className="p-2 font-semibold col-span-1">Time:</p><p className="p-2 col-span-2">{event.time}</p>
+                </div>
             </div>
+            <div className='mx-2 block md:col-start-3 md:col-span-2 border border-gray-400 rounded-md shadow-lg'>
+                <div className='block md:grid md:grid-cols-4 md:gap-2'>
+                    <label className='p-2 font-semibold col-span-1' htmlFor="number-of-tickets">Number of Tickets:</label>
+                    <select className="w-[50px] p-2 m-2 rounded-lg col-span-1" name="number-of-tickets" id="number-of-tickets">
+                        <option value="1" className="">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button type="submit" 
+                        className="p-2 m-2 rounded-lg bg-blue-600 text-white 
+                        col-span-2 font-semibold hover:bg-blue-700 shadow-md"
+                        >Buy Tickets
+                    </button>  
+                </div>
+            </div>
+
 
         </div> 
     </div>
