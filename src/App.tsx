@@ -10,6 +10,8 @@ import {
   Route,
 } from "react-router-dom";
 
+require('dotenv').config()
+
 
 export default function App() {
   return (

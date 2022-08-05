@@ -49,6 +49,8 @@ export default function Event() {
         calcTotalPrice(event.price);
     });
 
+  
+
     /*
     async function buyTicket() {
         try {
@@ -84,7 +86,7 @@ export default function Event() {
         <div className="block md:w-full md:mx-auto md:grid md:grid-cols-4 md:gap-10 md:max-w-screen-lg">
       
             <img src={event.imageUrl} alt="event banner" 
-            className=" md:col-span-2 md:rounded-md md:border md:border-gray-400 md:shadow-lg"/>
+            className="object-fit md:col-span-2 md:rounded-md md:border md:border-gray-400 md:shadow-lg"/>
           
             <div className='mx-2 mt-5 border border-gray-400 rounded-md shadow-lg block md:col-span-2 md:mt-0'>
                 <h1 className='p-2 m-0 text-center text-lg  text-white font-semibold rounded-t-md bg-green-400'>{event.title}</h1>
