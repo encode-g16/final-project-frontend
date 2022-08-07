@@ -1,16 +1,16 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
 
-type FormData = {
+export interface FormData {
     eventName: string;
     eventDate: string;
-    time: string;
+    time?: string;
     location: string;
     description: string;
-    price:number;
+    price:string;
     organiser:string;
-    file: File;
-    checkbox: boolean;
+    file?: File;
+    checkbox?: boolean;
 }
 
 export default function CreateEventForm() {
