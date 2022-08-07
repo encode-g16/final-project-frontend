@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Header from '../components/Header'
-import {ethers} from 'ethers'
+import Header from '../components/Header' 
 import eventData from '../MockEventData.json';
-import { FormData } from '../components/CreateEventForm';
 import {EventProp} from '../components/EventBox';
 import EventBox from '../components/EventBox';
 
