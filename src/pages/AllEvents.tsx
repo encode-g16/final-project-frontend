@@ -9,8 +9,9 @@ const AllEvents = () => {
   
   const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    setInput(e.target.value.toLowerCase());
-    let userEvents = eventData.filter((event) => event.eventName.toLowerCase().includes(input!))
+    let newInput = e.target.value.toLowerCase();
+    setInput(newInput);
+    let userEvents = eventData.filter((event) => event.eventName.toLowerCase().includes(newInput))
     setFilteredEvents(userEvents)
   }
 
