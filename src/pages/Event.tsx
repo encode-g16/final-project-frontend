@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';  
 import { useParams } from "react-router-dom";
 import Header from '../components/Header';
+import { useWeb3React } from '@web3-react/core';
 
   //temporary data until we have the API to call
 const event = {
@@ -22,7 +23,7 @@ async function fetchEvent(eventId: string) {
 
 export default function Event() {
     const price = event.price;
-
+    const { account, active } = useWeb3React();
     //uncomment this line to use the API
     //const event = fetchEvent(useParams().id);
     const [selectedValue, setSelectedValue] = useState<string>("1");
@@ -61,6 +62,7 @@ export default function Event() {
                     <p className="p-2 font-semibold col-span-1">Date (mm/dd/yy):</p><p className="p-2 col-span-2">{event.date}</p>
                     <p className="p-2 font-semibold col-span-1">Time:</p><p className="p-2 col-span-2">{event.time}</p>
                     <p className="p-2 font-semibold col-span-1">Price per Ticket (ETH):</p><p className="p-2 col-span-2">{event.price}</p>
+                    <p className="p-2 font-semibold col-span-1">Account</p><p className="p-2 col-span-2">{account}</p>
                 </div>
             </div>
             <div className='mx-2 block md:col-start-3 md:col-span-2 border border-gray-400 rounded-md shadow-lg'>

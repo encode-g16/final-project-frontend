@@ -9,12 +9,19 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import { Web3ReactProvider } from '@web3-react/core'
+import { Web3Provider } from '@ethersproject/providers'
 
-
+function getLibrary(provider: any): Web3Provider {
+    const library = new Web3Provider(provider)
+    library.pollingInterval = 12000
+    return library
+  }
 
 export default function App() {
 
   return (
+    <Web3ReactProvider getLibrary={getLibrary}>
       <Router>
         <div>
           <Switch>
@@ -36,5 +43,6 @@ export default function App() {
           </Switch>
         </div>
       </Router>
+    </Web3ReactProvider>
   );
 }

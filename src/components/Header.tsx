@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import ConnectButton from './ConnectButton'
 
 const Header = () => {
   return (
@@ -12,6 +13,8 @@ const Header = () => {
           <li className="cursor-pointer menu-items"><Link to={"/create-event"}>Create Event</Link></li>
           <li className="cursor-pointer menu-items"><Link to={"/my-created-events"}>My Created Events</Link>  </li>
           <li className="cursor-pointer menu-items"><Link to={"/all-events"}>All Events</Link></li>
+          <li className="cursor-pointer"><ConnectButton/></li>
+        
         </ul>
       </div>
     </div>
