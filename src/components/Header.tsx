@@ -9,7 +9,7 @@ const Header = () => {
           <Link to={"/"}><img src="/blocktic_logo.png" alt="logo" className="h-full w-full" /></Link>
       </div>
       <div className="block mr-[10%] md:ml-20 my-auto">
-        <ul className="grid grid-cols-8 gap-5 xl:gap-14 text-lg xl:text-2xl font-bold text-center">
+        <ul className="grid grid-cols-8 gap-5 xl:gap-14 xl:text-2xl font-bold text-center">
           <li className="cursor-pointer menu-items col-span-2"><Link to={"/create-event"}>Create Event</Link></li>
           <li className="cursor-pointer menu-items col-span-2"><Link to={"/my-created-events"}>My Created Events</Link>  </li>
           <li className="cursor-pointer menu-items col-span-2"><Link to={"/all-events"}>All Events</Link></li>
