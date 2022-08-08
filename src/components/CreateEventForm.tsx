@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 export interface FormData {
     eventName: string;
     eventDate: string;
-    time?: string;
+    numTickets?: string;
     location: string;
     description: string;
     price:string;
@@ -38,14 +38,14 @@ export default function CreateEventForm() {
                     {...register("eventDate" , { required: true, maxLength: 8 })}
                     className="block mx-2 md:col-span-1 rounded border border-gray-300"/>
 
-                    <label htmlFor="event-time" className="p-2 pt-3 pb-0 block md:col-span-1">Event Time</label>
-                    <input type="text" id="event-time" placeholder="19:00" 
-                    {...register("time" ,{ required: true })}
+                    <label htmlFor="numTickets" className="p-2 pt-3 pb-0 block md:col-span-1">Number of Tickets</label>
+                    <input type="text" id="numTickets" placeholder="100" 
+                    {...register("numTickets" ,{ required: true })}
                     className="block mx-2 md:col-span-1 rounded border border-gray-300"/>
 
                     {errors.eventDate?.type === 'required' && <p className="error block m-2 p-2 md:col-span-2">Date is required</p>}
                     {errors.eventDate?.type === 'maxLength' && <p className="error block m-2 p-2 md:col-span-2">Date must be 8 characters i.e. "01/01/20"</p>}
-                    {errors.time?.type === 'required' && <p className="error block m-2 p-2 md:col-span-2">Time is required</p>}
+                    {errors.numTickets?.type === 'required' && <p className="error block m-2 p-2 md:col-span-2">Number of Tickets is required</p>}
             
                     <label htmlFor="event-location" className="p-2 pt-3 pb-0 block md:col-span-1">Event Location</label>
                     <input type="text" id="event-location" placeholder="London"
@@ -53,28 +53,28 @@ export default function CreateEventForm() {
                     className="block mx-2 md:col-span-3 rounded border border-gray-300"/> 
                     {errors.location?.type === 'required' && <p className="error block m-2 p-2 md:col-span-4">Location is required</p>}    
                     
-                    <label htmlFor="event-description" className="p-2 pt-3 pb-0 block md:col-span-1">Description</label>
+                    {/* <label htmlFor="event-description" className="p-2 pt-3 pb-0 block md:col-span-1">Description</label>
                     <textarea id="event-description" placeholder="Ethereum Hackathon with up to £20,000 in prizes!" 
                     {...register("description",{ required: true })}
                     className="block mx-2 md:col-span-3 rounded border border-gray-300"/>
-                    {errors.description?.type === 'required' && <p className="error block m-2 p-2 md:col-span-4">Description is required</p>} 
+                    {errors.description?.type === 'required' && <p className="error block m-2 p-2 md:col-span-4">Description is required</p>}  */}
                 
                     <label htmlFor="event-price" className="p-2 pt-3 pb-0 block md:col-span-1">Event Price (ETH)</label>
                     <input type="text" id="event-price" placeholder="0.02" min="0" step=".01" 
                     {...register("price",{ required: true })}
                     className="block mx-2 md:col-span-1 rounded border border-gray-300"/>
                     
-                    <label htmlFor="event-organiser" className="p-2 pt-3 pb-0 block md:col-span-1">Organiser</label>
+                    {/* <label htmlFor="event-organiser" className="p-2 pt-3 pb-0 block md:col-span-1">Organiser</label>
                     <input type="text" id="event-organiser" placeholder="Vitalik Buterin" 
                     {...register("organiser",{ required: true })}
-                    className="block mx-2 md:col-span-1 rounded border border-gray-300"/>
+                    className="block mx-2 md:col-span-1 rounded border border-gray-300"/> */}
 
                     {errors.price?.type === 'required' && <p className="error block m-2 p-2 md:col-span-2 ">Price is required</p>}
-                    {errors.organiser?.type === 'required' && <p className="error block m-2 p-2 md:col-span-2">Organiser is required</p>}
+                    {/* {errors.organiser?.type === 'required' && <p className="error block m-2 p-2 md:col-span-2">Organiser is required</p>} */}
 
-                    <label htmlFor="event-image" className="p-2 pt-3 pb-0 block md:col-span-1">Event Image</label> 
+                    <label htmlFor="event-image" className="p-2 pt-3 pb-0 block md:col-start-1 md:col-span-1">Event Image</label> 
                     <input type="file" {...register("file",{ required: true })}
-                        className="block text-sm text-slate-500
+                        className="block m-2 text-sm text-slate-500
                         file:mr-4 file:py-2 file:px-4 file:my-2
                         file:rounded-full file:border-0
                         file:text-sm file:font-semibold
