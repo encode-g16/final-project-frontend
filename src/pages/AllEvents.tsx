@@ -29,7 +29,7 @@ const AllEvents = () => {
             </button>
         </div>
       </div>
-        <div className="grid grid-cols-4 gap-5 mx-16">
+        <div className="grid grid-cols-1 xl:grid-cols-4 md:grid-cols-2 gap-5 mx-5 sm:mx-16">
             {
               input
               ? filteredEvents!.map(({eventName, eventDate, location, description, price, organiser, file}) => <EventBox eventName={eventName} eventDate={eventDate} location={location} price={price} organiser={organiser} description={description} file={file}/>)

@@ -16,9 +16,9 @@ const Home = () => {
       </div>
       <div className="mx-auto px-[5%] pt-8">
           <div>
-            <h2 className="my-8 text-2xl ml-8 font-bold">Check Out Popular Events</h2>
+            <h2 className="my-8 text-2xl xl:ml-8 font-bold">Check Out Popular Events</h2>
           </div>
-          <div className="grid grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 xl:grid-cols-4 md:grid-cols-2 gap-5 mx-5 sm:mx-16">
             {
               eventData.map(({eventName, eventDate, location, description, price, organiser, file}) => <EventBox eventName={eventName} eventDate={eventDate} location={location} price={price} organiser={organiser} description={description} file={file}/>)
             }

@@ -59,7 +59,7 @@ const MyCreatedEvents = () => {
           <button className={ account ? `bg-lime-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg w-64 justify-self-center text-2xl`:`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg w-64 justify-self-center text-2xl`} onClick={connectWallet}>{account ? `Connected` : `Connect to Wallet`}</button>
           {account && <p className="text-center text-2xl drop-shadow-7xl font-semibold">Connected Wallet: <span className="text-lime-500">{account}</span> </p>}
         </div>
-        <div className="grid grid-cols-4 gap-5 mx-16">
+        <div className="grid grid-cols-1 xl:grid-cols-4 md:grid-cols-2 gap-5 mx-5 sm:mx-16">
           {
             myEvents?.map(({eventName, eventDate, location, description, price, organiser, file}) => <EventBox eventName={eventName} eventDate={eventDate} location={location} price={price} organiser={organiser} description={description} file={file}/>)
           }
