@@ -3,7 +3,6 @@ import { useWeb3React } from '@web3-react/core';
 import { InjectedConnector } from '@web3-react/injected-connector'
 import { shortenAddress } from '../utils/shortenAddress';
 import { Web3Provider } from '@ethersproject/providers'
-import { disconnect } from 'process';
 
 
 export default function ConnectButton(props:any) {
@@ -21,13 +20,16 @@ export default function ConnectButton(props:any) {
     if(active){
         return(
             <button
-            onClick={disconnect}
+            onClick={deactivate}
+            className="bg-blue-500 hover:bg-blue-700 text-white text-sm py-2 px-4 w-[100px] rounded-full"
             >{shortenAddress(account)}</button>
         )
     }
     return(
         <button
-        onClick={connect}>
+        onClick={connect}
+        className="bg-blue-500 hover:bg-blue-700 text-white text-sm py-2 px-4 w-[100px] rounded-full"
+        >
             Connect
         </button>
     )
