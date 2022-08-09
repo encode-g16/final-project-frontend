@@ -56,24 +56,24 @@ export default function Event() {
         calcTotalPrice(event.price);
     });
 
-    async function buyTicket(){
-        try {
-            setIsLoading(true);
-            //register transfer event from smart contract
-            eventContract.removeAllListeners();
-            eventContract.on("Transfer", () => {
-                setSuccess(true);
-                setIsLoading(false);
-            })
-            const tx = await eventContract.mint(data.eventDate,data.eventDate,data.location,data.price,data.numTickets, { value: ethers.utils.parseEther(costToDeployEvent) });
-            setTxHash(tx.hash);
-        }
-        catch (error) {
-            console.log(error);
-            setErrorStatus(true);
-            setTxError("failed to mint");
-        }
-    }
+    // async function buyTicket(){
+    //     try {
+    //         setIsLoading(true);
+    //         //register transfer event from smart contract
+    //         eventContract.removeAllListeners();
+    //         eventContract.on("Transfer", () => {
+    //             setSuccess(true);
+    //             setIsLoading(false);
+    //         })
+    //         const tx = await eventContract.mint(data.eventDate,data.eventDate,data.location,data.price,data.numTickets, { value: ethers.utils.parseEther(costToDeployEvent) });
+    //         setTxHash(tx.hash);
+    //     }
+    //     catch (error) {
+    //         console.log(error);
+    //         setErrorStatus(true);
+    //         setTxError("failed to mint");
+    //     }
+    // }
 
   return (
     <div className='max-h-full'>
