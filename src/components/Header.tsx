@@ -14,7 +14,7 @@ const Header = () => {
        <div className="md:hidden pt-2 cursor-pointer ml-5 mt-14 w-8 h-8" onClick={showMenu}>
           <img src="icon-menu.svg" alt="" className="object-fill w-full h-full" />
         </div>
-      <div className="mx-auto md:block w-100 xl:w-[20rem] h-[6rem] my-10 md:ml-8 xl:ml-12">
+      <div className="mx-auto md:block w-100 md:w-[300px]  h-[6rem] my-10 md:ml-8 xl:ml-12">
           <Link to={"/"}><img src="/blocktic_logo.png" alt="logo" className="h-full w-full" /></Link>
       </div>
      
