@@ -47,7 +47,13 @@ export default function CreateEventForm() {
     //         const ticketPrice = await factoryContract.price();
     //         const costToDeployEvent = await factoryContract.costToDeploy();
     //         const tx = await factoryContract.mint(data.eventDate,data.eventDate,data.location,data.price,data.numTickets, { value: ethers.utils.parseEther(costToDeployEvent) });
-    //         setTxHash(tx.hash);
+    //         const contractFactory = new ethers.ContractFactory(tokenJson.abi,tokenJson.bytecode,signer);
+   
+
+  //            const contractFactory = await tokenFactory.deploy();
+  //            console.log("Awaiting confirmations");
+  //            await contractFactory.deployed();
+    //          setTxHash(tx.hash);
     //     }
     //     catch (error) {
     //         console.log(error);
