@@ -1,5 +1,10 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form';
+import useContract from '../hooks/useContract';
+import { useWeb3React } from '@web3-react/core';
+import { ethers } from 'ethers';
+//import FactoryABI from '../abi';
+
 
 export interface FormData {
     eventName: string;
@@ -19,8 +24,48 @@ export default function CreateEventForm() {
         console.log(JSON.stringify(data));
     })
 
+    const { account, active } = useWeb3React();
+    //const FactoryContractAddress = '0x1240c96D19F298B8B75A06471C03539Aef0Eba77'; 
+    //const factoryContract = useContract(FactoryContractAddress, FactoryABI);
+    const [isLoading, setIsLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [txHash, setTxHash] = useState('');
+    const [errorStatus, setErrorStatus] = useState(false);
+    const [txError, setTxError] = useState('');
+    const etherScanBase = 'https://rinkeby.etherscan.io/tx/'
+
+    // async function deployEvent(data:FormData){
+    //     try {
+    //         setIsLoading(true);
+    //         //register transfer event from smart contract
+    //         factoryContract.removeAllListeners();
+    //         factoryContract.on("Transfer", () => {
+    //             setSuccess(true);
+    //             setIsLoading(false);
+    //         })
+
+    //         const ticketPrice = await factoryContract.price();
+    //         const costToDeployEvent = await factoryContract.costToDeploy();
+    //         const tx = await factoryContract.mint(data.eventDate,data.eventDate,data.location,data.price,data.numTickets, { value: ethers.utils.parseEther(costToDeployEvent) });
+    //         const contractFactory = new ethers.ContractFactory(tokenJson.abi,tokenJson.bytecode,signer);
+   
+
+  //            const contractFactory = await tokenFactory.deploy();
+  //            console.log("Awaiting confirmations");
+  //            await contractFactory.deployed();
+    //          setTxHash(tx.hash);
+    //     }
+    //     catch (error) {
+    //         console.log(error);
+    //         setErrorStatus(true);
+    //         setTxError("failed to mint");
+    //     }
+    // }
+
     return (
-        <div>
+        <div className='max-h-full'>
+            {/*show form initially*/}
+            {!isLoading &&
             <form onSubmit={onSubmit}
             className="w-1/2 h-1/2 border border-gray-300  bg-white rounded-md shadow-md mx-auto"
             >
@@ -93,6 +138,15 @@ export default function CreateEventForm() {
                     <button type="submit" className="block p-2 mx-auto md:m-2 md:col-span-4  bg-blue-600 text-center text-lg rounded-md text-white font-semibold hover:bg-blue-700">Create Event</button>
                 </div>
             </form>
+            } {/*end of form*/}
+            {isLoading && <p>Hang tight, creating your event on chain...</p>}
+            {success && 
+                <>
+                    <p>Your event is live!</p>
+                    <a href={etherScanBase + txHash} target="_blank" rel="noreferrer">View on EtherScan</a>   
+                </> 
+            }
+            {errorStatus && <p>{txError}</p>}
         </div>
     )
 }

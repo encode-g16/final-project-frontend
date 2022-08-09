@@ -21,17 +21,16 @@ export default function ConnectButton(props:any) {
         return(
             <button
             onClick={deactivate}
-            className="bg-blue-500 hover:bg-blue-700 text-white text-sm py-2 px-4 w-[140px] rounded-full"
+            className="bg-blue-600 hover:bg-blue-700 text-white text-sm py-2 px-4 w-[100px] rounded-full shadow-lg"
             >{shortenAddress(account)}</button>
         )
     }
     return(
         <button
         onClick={connect}
-        className="bg-blue-500 hover:bg-blue-700 text-white text-sm py-2 px-4 w-[140px] rounded-full"
+        className="bg-blue-600 hover:bg-blue-700 text-white text-sm py-2 px-4 w-[100px] rounded-full shadow-lg"
         >
             Connect
         </button>
     )
-    
 }
