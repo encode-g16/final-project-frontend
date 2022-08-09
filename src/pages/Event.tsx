@@ -60,11 +60,13 @@ export default function Event() {
         try {
             setIsLoading(true);
             //register transfer event from smart contract
-            //eventContract.removeAllListeners();
-            //eventContract.on("Transfer", () => {
+            eventContract.removeAllListeners();
+            eventContract.on("Transfer", () => {
                 setSuccess(true);
                 setIsLoading(false);
-            //}
+            })
+            const tx = await eventContract.mint(data.eventDate,data.eventDate,data.location,data.price,data.numTickets, { value: ethers.utils.parseEther(costToDeployEvent) });
+            setTxHash(tx.hash);
         }
         catch (error) {
             console.log(error);
@@ -135,51 +137,3 @@ export default function Event() {
     </div>
   )
 }
-
-
-  /*
-    <div className="event-details-container">
-        <div className='event-picture-container'>
-            <img className="event-picture" src={event.imageUrl} alt="{event.title}"/>
-        </div>
-        <div className='event-details-container-child1'>
-            <div className='event-card'>
-                <div className="event-card-title">
-                    <h1 className='event-details-title'>{event.title}</h1>
-                </div>
-                <hr className='event-card-hr'/>
-                <p>Event Name: {event.title}</p>
-                <p>Description: {event.description}</p>
-                <p>Organiser: {event.organiser}</p>
-                <p>Location: {event.location}</p>
-                <p>Date: {event.date}</p>
-                <p>Time: {event.time}</p>
-            </div>
-            <div className='event-buttons-container'>
-                <div className='event-buttons-buy-container'>
-                    <label className='buy-tickets-label' htmlFor="number-of-tickets">Buy Ticket</label>
-                    <select className="ticket-select" name="number-of-tickets" id="number-of-tickets">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
-                    <span className='ticket-price-label'>Price: {event.price} ETH each</span>
-                </div>
-                <div className='event-buttons-button-container'>
-                    <button className='buy-button' type='submit' name="buy-button">Buy</button>
-                </div>
-            </div>
-        </div>
-
-    </div>
-  )
-}
-
-*/
