@@ -4,16 +4,14 @@ import useContract from '../hooks/useContract';
 import { useWeb3React } from '@web3-react/core';
 import { ethers } from 'ethers';
 import * as EventContractFactoryJson from "../factoryAbi.json";
-import { factoryContractAddress } from '../factoryContractAddress';
+import factoryContractAddress from '../factoryContractAddress';
 
 export interface FormData {
     eventName: string;
     eventDate: string;
     numTickets?: string;
     location: string;
-    description: string;
     price:string;
-    organiser:string;
     file?: File;
     checkbox?: boolean;
 }
@@ -55,7 +53,7 @@ export default function CreateEventForm() {
         }
     }
 
-    const onSubmit = handleSubmit((data) => {
+    const onSubmit = handleSubmit((data:FormData) => {
         console.log(JSON.stringify(data));
         deployEvent(data);
     })
