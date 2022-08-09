@@ -33,5 +33,4 @@ export default function ConnectButton(props:any) {
             Connect
         </button>
     )
-    
 }
